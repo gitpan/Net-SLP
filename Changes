@@ -1,0 +1,6 @@
+Revision history for Perl extension Net::SLP.
+
+1.0  Mon Nov  1 11:04:24 2004
+	- original version; created by h2xs 1.23 with options
+		-O -n Net::SLP /usr/include/slp.h -lslp -b 5.5.3
+
