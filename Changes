@@ -4,3 +4,6 @@ Revision history for Perl extension Net::SLP.
 	- original version; created by h2xs 1.23 with options
 		-O -n Net::SLP /usr/include/slp.h -lslp -b 5.5.3
 
+1.1 Tue Jun 19 2007
+    - Original distro was missing typemap file.
+    - slp_attr_callback_glue now returns FALSE to prevent uninitialised result warning.

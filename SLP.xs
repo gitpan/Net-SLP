@@ -3,7 +3,7 @@
 // XS file for Net::SLP
 // Author: Mike McCauley (mikem@open.com.au)
 // Copyright (C) 2004 Mike McCauley
-// $Id: SLP.xs,v 1.1 2004/11/01 06:20:18 mikem Exp $
+// $Id: SLP.xs,v 1.2 2007/06/18 21:40:54 mikem Exp $
 
 #include "EXTERN.h"
 #include "perl.h"
@@ -105,7 +105,7 @@ slp_attr_callback_glue(SLPHandle hSLP,
 {
     dSP;
     int        count;
-    SLPBoolean result;
+    SLPBoolean result = SLP_FALSE;
 
     if (pvCookie == NULL)
         croak ("Net::SLP: slp_attr_callback_glue called without a callback function.\n");
