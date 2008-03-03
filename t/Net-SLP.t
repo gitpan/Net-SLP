@@ -53,7 +53,6 @@ Net::SLP::SLPSetProperty('openslp_ignores_this', 'openslp_ignores_this');
 
 ok(Net::SLP::SLPOpen('', 0, $handle) == Net::SLP::SLP_OK);
 ok($handle);
-
 ok(Net::SLP::SLPGetRefreshInterval() >= 0);
 
 # Test escaping of URLs
@@ -69,18 +68,28 @@ my $scopelist;
 ok(Net::SLP::SLPFindScopes($handle, $scopelist) == Net::SLP::SLP_OK);
 ok($scopelist eq 'default');
 
-ok(Net::SLP::SLPReg($handle, 
-		    'service:mytestservice.x://zulu.open.com.au:9048', # URL
-		    Net::SLP::SLP_LIFETIME_MAXIMUM,                # lifetime
-		    '',                                             # srvtype (ignored)
-		    '(attr1=val1),(attr2=val2),(attr3=val3)',          # attrs
-		    1,                             # Register. SLP does not support reregister.
-		    \&regcallback) == Net::SLP::SLP_OK);
+###
+my $ret = Net::SLP::SLPReg
+    ($handle, 
+     'service:mytestservice.x://zulu.open.com.au:9048', # URL
+     Net::SLP::SLP_LIFETIME_MAXIMUM,                # lifetime
+     '',                                             # srvtype (ignored)
+     '(attr1=val1),(attr2=val2),(attr3=val3)',          # attrs
+     1,                             # Register. SLP does not support reregister.
+     \&regcallback);
+
+if ($ret == Net::SLP::SLP_NETWORK_INIT_FAILED)
+{
+    # Could not contact slpd
+    die 'Unable to complete tests because no slp server could be contacted. Check that there is an slp server running';
+}
+ok($ret == Net::SLP::SLP_OK);
 ok($regcallbackcount == 1);
 
 # Check that the registration worked, no filter
 ok(Net::SLP::SLPFindSrvs($handle, 'mytestservice.x', '', '', \&urlcallback) == Net::SLP::SLP_OK);
 ok($urlcallbackcount == 2);
+
 # This filter should succeed
 ok(Net::SLP::SLPFindSrvs($handle, 'mytestservice.x', '', '(attr1=val1)', \&urlcallback) == Net::SLP::SLP_OK);
 ok($urlcallbackcount == 4);
@@ -107,15 +116,16 @@ ok($gotattrs eq '(attr1=val1),(attr2=val2),(attr3=val3)');
 #ok($lasterr ==  Net::SLP::SLP_OK);
 #
 ## Make sure we get the adjusted
-#ok(Net::SLP::SLPFindAttrs($handle, 'mytestservice.x', undef, undef, \&attrcallback) == Net::SLP::SLP_OK);
+#ok(Net::SLP::SLPFindAttrs($handle, 'mytestservice.x', '', undef, \&attrcallback) == Net::SLP::SLP_OK);
 #ok($attrcallbackcount == 3);
 #ok($gotattrs eq '(attr2=val2)');
 
 
+xxx:
 # Now delete the service
 ok(Net::SLP::SLPDereg($handle, 
-			'service:mytestservice.x://zulu.open.com.au:9048', # URL
-			\&regcallback) == Net::SLP::SLP_OK);
+		      'service:mytestservice.x://zulu.open.com.au:9048', # URL
+		      \&regcallback) == Net::SLP::SLP_OK);
 ok($regcallbackcount == 2);
 ok($lasterr ==  Net::SLP::SLP_OK);
 

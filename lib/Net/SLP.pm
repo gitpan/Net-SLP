@@ -3,7 +3,7 @@
 # Main module Net::SLP
 # Author Mike McCauley (mikem@open.com.au)
 # Copyright (C) Mike McCauley
-# $Id: SLP.pm,v 1.2 2007/06/18 21:40:54 mikem Exp $
+# $Id: SLP.pm,v 1.3 2007/06/20 22:46:15 mikem Exp mikem $
 package Net::SLP;
 
 use 5.00503;
@@ -80,7 +80,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 	SLP_TYPE_ERROR
 );
 
-$VERSION = '1.1';
+$VERSION = '1.3';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()

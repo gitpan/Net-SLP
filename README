@@ -6,7 +6,7 @@ described in RFC2614. SLP is the Service Location Protocol, and is
 used to find servers for specific services. SLPv2 is described in
 RFC2608.
 
-This module has been tested against Openslp 1.0.11
+This module has been tested against Openslp 1.0.11 and 1.2.1
 (http://www.openslp.org). In principal it should work with other SLP
 APIs that conform to the RFC, though this has not been tested. Details
 and reports of other ports (and patches) are welcome.
@@ -33,7 +33,7 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-Openslp 1.0.11 or later (if you install from RPMS, you will
+Openslp 1.0.11 or 1.2.1 or later (if you install from RPMS, you will
 need both openslp and openslp-devel). http://www.openslp.org
 
 An SLP server (slpd) is required to be running during 'make test',
