@@ -18,3 +18,7 @@ Revision history for Perl extension Net::SLP.
     be contacted. Now it die()s with an informative message.
     - Altered prerequisites to openslp 1.2.1. 1.2.0 has a bug in SLPDereg that
     causes a seg fault on some platforms when the tests are run.
+
+1.4 Sat Nov  1 15:14:50 EST 2008
+    - Fix a test suite failure. Net::SLP::SLPFindScopes can result in a
+    scopelist of DEFAULT or default.

@@ -66,7 +66,7 @@ ok($testunescaped eq $unescaped);
 
 my $scopelist;
 ok(Net::SLP::SLPFindScopes($handle, $scopelist) == Net::SLP::SLP_OK);
-ok($scopelist eq 'default');
+ok($scopelist eq 'default' || $scopelist eq 'DEFAULT');
 
 ###
 my $ret = Net::SLP::SLPReg

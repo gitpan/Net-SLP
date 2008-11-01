@@ -80,7 +80,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 	SLP_TYPE_ERROR
 );
 
-$VERSION = '1.3';
+$VERSION = '1.4';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
