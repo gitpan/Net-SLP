@@ -22,3 +22,6 @@ Revision history for Perl extension Net::SLP.
 1.4 Sat Nov  1 15:14:50 EST 2008
     - Fix a test suite failure. Net::SLP::SLPFindScopes can result in a
     scopelist of DEFAULT or default.
+
+1.5 Fri Mar 22 10:23:20 EST 2013
+    Updated author and distribution location details to airspayce.com

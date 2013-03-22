@@ -1,7 +1,7 @@
 # SLP.pm
 #
 # Main module Net::SLP
-# Author Mike McCauley (mikem@open.com.au)
+# Author Mike McCauley (mikem@airspayce.com)
 # Copyright (C) Mike McCauley
 # $Id: SLP.pm,v 1.3 2007/06/20 22:46:15 mikem Exp mikem $
 package Net::SLP;
@@ -80,7 +80,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 	SLP_TYPE_ERROR
 );
 
-$VERSION = '1.4';
+$VERSION = '1.5';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -124,7 +124,7 @@ use Net::SLP;
 my $handle;
 Net::SLP::SLPOpen('', 0, $handle);
 Net::SLP::SLPReg($handle, 
-		    'service:mytestservice.x://zulu.open.com.au:9048', # URL
+		    'service:mytestservice.x://zulu.airspayce.com:9048', # URL
 		    Net::SLP::SLP_LIFETIME_MAXIMUM,                # lifetime
 		    '',                                             # srvtype (ignored)
 		    '(attr1=val1),(attr2=val2),(attr3=val3)',          # attrs
@@ -198,7 +198,7 @@ RFC2614 (SLP API)
 
 =head1 AUTHOR
 
-Mike McCauley, E<lt>mikem@open.com.auE<gt>
+Mike McCauley, E<lt>mikem@airspayce.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

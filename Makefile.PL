@@ -1,7 +1,7 @@
 # Makefile.PL
 #
 # Makefile for Net::SLP
-# Author Mike McCauley (mikem@open.com.au)
+# Author Mike McCauley (mikem@airspayce.com)
 # Copyright (C) Mike McCauley
 # $Id: Makefile.PL,v 1.2 2004/11/01 06:24:49 mikem Exp $
 use 5.00503;
@@ -14,7 +14,7 @@ WriteMakefile(
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Net/SLP.pm', # retrieve abstract from module
-       AUTHOR         => 'Mike McCauley <mikem@open.com.au>') : ()),
+       AUTHOR         => 'Mike McCauley <mikem@airspayce.com>') : ()),
     LIBS              => ['-lslp '], # e.g., '-lm'
     DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
     INC               => '-I.', # e.g., '-I. -I/usr/include/other'
